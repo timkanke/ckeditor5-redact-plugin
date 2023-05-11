@@ -2,7 +2,7 @@
 
 This package was created by the [ckeditor5-package-generator](https://www.npmjs.com/package/ckeditor5-package-generator) package.
 
-See [docs/InitalSetup.md](docs/InitalSetup.md)
+See [docs/InitialSetup.md](docs/InitialSetup.md)
 
 ## Table of contents
 
