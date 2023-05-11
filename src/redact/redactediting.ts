@@ -1,6 +1,6 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import Redact from './redact';
-import AttributeCommand from './attributecommand';
+import AttributeCommand from '@ckeditor/ckeditor5-basic-styles/src/attributecommand';
 
 export default class RedactEditing extends Plugin {
 	init() {
@@ -24,14 +24,11 @@ export default class RedactEditing extends Plugin {
 		const editor = this.editor;
 		
         // Conversion from a model attribute to a view element
-
-		
 		editor.conversion.attributeToElement( {
-			model: 'RedactEditing',
-			view: 's',
+			model: 'redact',
+			view: {name: 'del', classes: 'redacted'},
 			upcastAlso: [
-				'del',
-				'strike',
+
 				{
 					styles: {
 						'text-decoration': 'line-through'
@@ -39,29 +36,12 @@ export default class RedactEditing extends Plugin {
 				}
 			]
 		} );
-
-		// conversion.for( 'downcast' ).attributeToElement( {
-            // model: 'RedactEditing',
-            // view: ( attributeValue, writer ) => {
-                // return writer.AttributeElement( 's', { target: attributeValue }, { priority: 5 } );
-            // },
-            // converterPriority: 'low'
-        // } );
-// 
-    //    conversion.for( 'upcast' ).attributeToAttribute( {
-            // view: {
-                // name: 's',
-                // key: 'target'
-            // },
-            // model: 'RedactEditing',
-            // converterPriority: 'low'
-        // } );
 		
 		// Create strikethrough command.
-		editor.commands.add( 'RedactEditing', new AttributeCommand( editor, 'RedactEditing' ) );
+		editor.commands.add( 'redact', new AttributeCommand( editor, 'redact' ) );
 
 		// Set the Ctrl+j keystroke.
-		// Progress. Not all keys are usable. I was using the period/greater than. Changed to j; I get an error message.
+		// Progress. Not all keys are usable. I was using the period/greater than.
 		editor.keystrokes.set( 'CTRL+j', 'redact' );
 
 	}
