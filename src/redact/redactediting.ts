@@ -2,6 +2,8 @@ import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import Redact from './redact';
 import AttributeCommand from '@ckeditor/ckeditor5-basic-styles/src/attributecommand';
 
+const REDACT = 'redact'
+
 export default class RedactEditing extends Plugin {
 	init() {
 		this._defineSchema();
@@ -13,9 +15,9 @@ export default class RedactEditing extends Plugin {
 
     	// Extend the text node's schema to accept the redact attribute.
 		schema.extend( '$text', {
-			allowAttributes: [ 'redact' ]
+			allowAttributes: [ REDACT ]
 		} );
-		schema.setAttributeProperties( 'Redact', {
+		schema.setAttributeProperties( REDACT, {
 			isFormatting: true,
 			copyOnEnter: true
 		} );
@@ -25,7 +27,7 @@ export default class RedactEditing extends Plugin {
 		
         // Conversion from a model attribute to a view element
 		editor.conversion.attributeToElement( {
-			model: 'redact',
+			model: REDACT,
 			view: {name: 'del', classes: 'redacted'},
 			upcastAlso: [
 
@@ -38,11 +40,11 @@ export default class RedactEditing extends Plugin {
 		} );
 		
 		// Create strikethrough command.
-		editor.commands.add( 'redact', new AttributeCommand( editor, 'redact' ) );
+		editor.commands.add( REDACT, new AttributeCommand( editor, REDACT ) );
 
 		// Set the Ctrl+j keystroke.
 		// Progress. Not all keys are usable. I was using the period/greater than.
-		editor.keystrokes.set( 'CTRL+j', 'redact' );
+		editor.keystrokes.set( 'CTRL+j', REDACT );
 
 	}
 }
