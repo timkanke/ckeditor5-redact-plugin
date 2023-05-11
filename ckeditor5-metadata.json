@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    {
+      "name": "Redact plugin",
+      "className": "RedactPlugin",
+      "description": "Adds text to the editor.",
+      "path": "src/redactplugin.ts",
+      "uiComponents": [
+        {
+          "name": "redactPluginButton",
+          "type": "Button",
+          "iconPath": "theme/icons/ckeditor.svg"
+        }
+      ]
+    }
+  ]
+}
