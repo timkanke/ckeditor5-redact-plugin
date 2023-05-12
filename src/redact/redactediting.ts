@@ -29,7 +29,8 @@ export default class RedactEditing extends Plugin {
 			model: REDACT,
 			view: {
 				name: 'del', 
-				classes: 'redacted'
+				classes: 'redacted',
+				styles: {'color': 'red', 'background': 'papayawhip'}
 			},
 			upcastAlso: [
 
