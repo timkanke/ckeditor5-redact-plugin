@@ -1,18 +1,20 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview'
-import AttributeCommand from '@ckeditor/ckeditor5-basic-styles/src/attributecommand';
+import type AttributeCommand from '@ckeditor/ckeditor5-basic-styles/src/attributecommand';
 
 const REDACT = 'redact'
 
 export default class RedactUI extends Plugin {
-	init() {
+	init(): void {
 		const editor = this.editor;
-		// const command: AttributeCommand = editor.commands.get( REDACT )!;
 
         // Register the button in the editor's UI component factory.
-		editor.ui.componentFactory.add( 'redact', () => {
-			const button = new ButtonView();
+		editor.ui.componentFactory.add( REDACT, locale => {
+			// https://ckeditor.com/docs/ckeditor5/latest/api/module_basic-styles_attributecommand-AttributeCommand.html
+			// const command: AttributeCommand = editor.commands.get( REDACT )!;
+			const button = new ButtonView( locale );
 			
+
 			button.set( {
 				label: 'Redact',
 				withText: true,
