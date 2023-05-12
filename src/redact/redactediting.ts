@@ -1,5 +1,4 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import Redact from './redact';
 import AttributeCommand from '@ckeditor/ckeditor5-basic-styles/src/attributecommand';
 
 const REDACT = 'redact'
@@ -28,7 +27,10 @@ export default class RedactEditing extends Plugin {
         // Conversion from a model attribute to a view element
 		editor.conversion.attributeToElement( {
 			model: REDACT,
-			view: {name: 'del', classes: 'redacted'},
+			view: {
+				name: 'del', 
+				classes: 'redacted'
+			},
 			upcastAlso: [
 
 				{
@@ -43,7 +45,7 @@ export default class RedactEditing extends Plugin {
 		editor.commands.add( REDACT, new AttributeCommand( editor, REDACT ) );
 
 		// Set the Ctrl+j keystroke.
-		// Progress. Not all keys are usable. I was using the period/greater than.
+		// Note: Not all keys are usable such as period/greater than.
 		editor.keystrokes.set( 'CTRL+j', REDACT );
 
 	}
