@@ -8,6 +8,7 @@
     "noImplicitOverride": true,
     "strict": true,
     "module": "es6",
+    "outDir": "out",
     "target": "es2020",
     "sourceMap": true,
     "allowJs": true,
