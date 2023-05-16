@@ -10,7 +10,9 @@ export default class RedactUI extends Plugin {
 
         // Register the button in the editor's UI component factory.
 		editor.ui.componentFactory.add( REDACT, locale => {
+			// To Do: add button bind to indicate altered texted when selected
 			// https://ckeditor.com/docs/ckeditor5/latest/api/module_basic-styles_attributecommand-AttributeCommand.html
+			// https://github.com/ckeditor/ckeditor5/issues/9107
 			// const command: AttributeCommand = editor.commands.get( REDACT )!;
 			const button = new ButtonView( locale );
 			
