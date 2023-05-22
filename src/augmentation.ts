@@ -1,7 +1,8 @@
 import type { RedactPlugin } from './index';
+import Redact from './redact';
 
 declare module '@ckeditor/ckeditor5-core' {
 	interface PluginsMap {
-		[ RedactPlugin.pluginName ]: RedactPlugin;
+		[ Redact.pluginName ]: RedactPlugin;
 	}
 }

@@ -24,8 +24,8 @@ import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
 import { Base64UploadAdapter } from '@ckeditor/ckeditor5-upload';
 
 // import RedactPlugin from '../src/redactplugin';
-import Abbreviation from '../src/abbreviation/abbreviation';
-import Redact from '../src/redact/redact';
+import Abbreviation from '../tmp/abbreviation/abbreviation';
+import Redact from '../src/redact';
 
 
 ClassicEditor

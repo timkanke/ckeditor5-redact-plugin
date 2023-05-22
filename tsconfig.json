@@ -23,5 +23,5 @@
     "./src",
     "./tests",
     "./typings"
-  ]
+, "tmp/abbreviation"  ]
 }
